@@ -101,4 +101,25 @@
       message = #{message,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectByName" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sys_lesson
+    where name = #{name}
+  </select>
+  <select id="selectById" parameterType="java.lang.Integer">
+    select * from sys_lesson where id = #{id}
+  </select>
+  <update id="updateById" parameterType="java.lang.Integer">
+    update sys_lesson
+    set name = #{name,jdbcType=VARCHAR},
+    start = #{start,jdbcType=DATE},
+    end = #{end,jdbcType=DATE},
+    grade = #{grade,jdbcType=VARCHAR},
+    message = #{message,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectAll"  resultMap="BaseResultMap">
+    select * from sys_lesson order by id;
+  </select>
 </mapper>

@@ -5,10 +5,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.qfedu.stufdentsys.dao")
+@MapperScan("com.qfedu.student.dao")
 public class StudentsysApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(StudentsysApplication.class, args);
     }
 

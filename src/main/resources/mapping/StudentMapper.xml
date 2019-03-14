@@ -120,14 +120,10 @@
     from sys_student
     where name = #{name}
   </select>
-  <select id="selectCount" resultType="java.lang.Long">
-    select count(*) from sys_student;
-  </select>
-  <select id="selectPage" resultMap="BaseResultMap">
-    select * from sys_student order by id limit #{index},#{count};
-  </select>
-  
-  <select id="register" parameterType="Student">
-    insert into sys_student(name,password,sex,tel) value (#{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR})
+  <update id="updateByIdPassword" parameterType="com.qfedu.student.entity.Student">
+    update sys_student set password=#{password} where id=#{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectAll"  resultMap="BaseResultMap">
+    select * from sys_student order by id;
   </select>
 </mapper>
